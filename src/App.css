@@ -1,0 +1,313 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #e2e8f0;
+}
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+.app-container {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ===== EN-TÊTE ===== */
+.app-header {
+  text-align: center;
+}
+
+.header-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(10deg); }
+  75%  { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* ===== CARTE CONVERTISSEUR ===== */
+.converter-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.converter-card:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== GROUPES DE FORMULAIRE ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===== INPUT MONTANT ===== */
+.input-montant {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  color: #f1f5f9;
+  font-size: 1.1rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.input-montant::placeholder {
+  color: #475569;
+}
+
+.input-montant:focus {
+  border-color: #60a5fa;
+  background: rgba(96, 165, 250, 0.1);
+}
+
+/* Supprime les flèches spinner du champ number */
+.input-montant::-webkit-inner-spin-button,
+.input-montant::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-montant[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* ===== RANGÉE DEVISES ===== */
+.devise-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+/* ===== SÉLECT DEVISE ===== */
+.select-devise {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+}
+
+.select-devise:focus {
+  border-color: #a78bfa;
+  background-color: rgba(167, 139, 250, 0.1);
+}
+
+.select-devise option {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+/* ===== BOUTON INVERSER ===== */
+.btn-inverser {
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  margin-bottom: 0.1rem;
+}
+
+.btn-inverser:hover {
+  background: rgba(167, 139, 250, 0.2);
+  border-color: #a78bfa;
+  color: #a78bfa;
+  transform: rotate(180deg);
+}
+
+/* ===== MESSAGE D'ERREUR ===== */
+.erreur {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  color: #fca5a5;
+  font-size: 0.9rem;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ===== BOUTON CONVERTIR ===== */
+.btn-convertir {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 0.85rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-convertir:hover {
+  background: linear-gradient(135deg, #818cf8, #a78bfa);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.55);
+}
+
+.btn-convertir:active {
+  transform: translateY(0);
+}
+
+/* ===== RÉSULTAT ===== */
+.resultat-box {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.resultat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 0.6rem;
+}
+
+.resultat-valeur {
+  font-size: 1.3rem;
+  color: #f1f5f9;
+  line-height: 1.6;
+}
+
+.resultat-valeur strong {
+  color: #a78bfa;
+  font-size: 1.6rem;
+}
+
+.devise-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.devise-badge.accent {
+  background: rgba(167, 139, 250, 0.2);
+  color: #c4b5fd;
+}
+
+.taux-info {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.6rem;
+  opacity: 0.8;
+}
+
+/* ===== PIED DE PAGE ===== */
+.app-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .converter-card {
+    padding: 1.4rem;
+  }
+
+  .devise-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-inverser {
+    width: 100%;
+    border-radius: 0.75rem;
+    height: 2.4rem;
+    transform: none;
+  }
+
+  .btn-inverser:hover {
+    transform: none;
+  }
+}
+
